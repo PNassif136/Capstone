@@ -1,0 +1,5 @@
+Model,Training MAE,Test MAE,Training Mean,Test Mean
+Linear Regression,4.2906,4.2893,8.97,8.98
+Decision Tree,4.3427,4.3406,8.97,8.98
+Random Forest,4.3425,4.3402,8.97,8.98
+XGBoost,4.2899,4.2881,8.97,8.98

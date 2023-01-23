@@ -1,0 +1,2 @@
+Model,Training MAE,Test MAE,Training Mean,Test Mean
+Optimized XGBoost,0.9697,0.9686,8.97,8.98
