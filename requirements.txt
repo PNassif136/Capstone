@@ -1,7 +1,7 @@
 yarg==0.1.9
 requests==2.25.1
 docopt==0.6.2
-streamlit
+streamlit==1.17.0
 streamlit_option_menu
 plotly==5.5.0
 plotly-express==0.4.1
