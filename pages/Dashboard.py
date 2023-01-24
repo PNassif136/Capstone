@@ -1,19 +1,3 @@
-
-#### FIND A WAY TO MAKE SEVERAL PREDICTION TOOLS. ONE FOR AMOUNTPAID, ONE FOR PROFIT, ...
-
-# Additional Packages
-# To use for country conversion in data wrangling
-#!pip install pycountry
-
-# For automated EDA Report generation
-#!pip install dataprep
-
-# Install AWOC package, which contains data about world continents and countries
-#!pip install a-world-of-countries
-
-# To display numbers in a cleaner way
-#!pip install millify
-
 # Import libraries
 import streamlit as st
 from streamlit_option_menu import option_menu
@@ -64,7 +48,7 @@ st.set_page_config(
 
 @st.cache()
 def load_visuals():
-    df = pd.read_csv("/Users/Paul/kfh_visuals_zip.csv", compression='gzip')
+    df = pd.read_csv("kfh_visuals_zip.csv", compression='gzip')
     return df
 df = load_visuals()
 
@@ -136,7 +120,7 @@ if option == 'Visuals':
     # Source: https://surendraredd.github.io/Books/examples.html
     @st.cache()
     def load_visuals():
-        df = pd.read_csv("/Users/Paul/kfh_visuals_zip.csv", compression='gzip')
+        df = pd.read_csv("kfh_visuals_zip.csv", compression='gzip')
         return df
     df = load_visuals()
 
@@ -360,8 +344,8 @@ if option == 'Visuals':
 
         # Assess Customer Lifetime Value (CLV)
         with st.expander('*Customer Lifetime Value Assessment*'):
-            customer = pd.read_csv("/Users/Paul/customer.csv")
-            cards = pd.read_csv("/Users/Paul/cards.csv")
+            customer = pd.read_csv("customer.csv")
+            cards = pd.read_csv("cards.csv")
             st.write('- Each customer spent an average of', customer['TotalSpent'].mean().round(1), 'KWD since the program launch.')
             st.write('- Customers earned an average of', customer['PointsRewarded'].mean().round(1), 'Points through card payments.')
             st.write('- They redeemed an average of', customer['PointsRedeemed'].mean().round(1), 'Points against available rewards.')
@@ -401,7 +385,7 @@ if option == 'Visuals':
 if option == 'Statistics':
     @st.cache()
     def load_visuals():
-        df = pd.read_csv("/Users/Paul/kfh_visuals_zip.csv", compression='gzip')
+        df = pd.read_csv("kfh_visuals_zip.csv", compression='gzip')
         return df
     df = load_visuals()
     
@@ -418,21 +402,21 @@ if option == 'Statistics':
     ## Imported as image from Python file to avoid long execution
     with col11:
         from PIL import Image
-        image = Image.open('/Users/Paul/original.png')
+        image = Image.open('original.png')
         st.image(image)
 
     # Plot the Distribution after removing outliers
     ## Imported as image from Python file to avoid long execution
     with col12:
         from PIL import Image
-        image = Image.open('/Users/Paul/outliers.png')
+        image = Image.open('outliers.png')
         st.image(image)
 
     # Plot the Distribution after Yeo-Johnson transformation
     ## Imported as image from Python file to avoid long execution
     with col13:
         from PIL import Image
-        image = Image.open('/Users/Paul/transformed.png')
+        image = Image.open('transformed.png')
         st.image(image)
 
     # Provide insights using HTML
@@ -534,7 +518,7 @@ if option == 'Predictions':
     # Load dataset
     @st.cache()
     def load_visuals():
-        df = pd.read_csv("/Users/Paul/kfh_visuals_zip.csv", compression='gzip')
+        df = pd.read_csv("kfh_visuals_zip.csv", compression='gzip')
         return df
     df = load_visuals()
 
@@ -752,10 +736,3 @@ if option == 'Predictions':
         inverted = pd.DataFrame([invert_yeojhonson(x, lmbda) for x in prediction])
         st.write('')
         st.write('##### This customer will spend', '{:.2f}'.format(inverted.iloc[0,0]), ' Kuwaiti Dinars')
-
-
-# https://www.datacamp.com/tutorial/streamlit
-# https://sengul-krdrl.medium.com/developing-prediction-app-with-streamlit-2b8e4f8abfef
-# https://www.analyticsvidhya.com/blog/2021/06/streamlit-for-ml-web-applications-customers-propensity-to-purchase/
-# https://www.docker.com/blog/how-to-develop-and-deploy-a-customer-churn-prediction-model-using-python-streamlit-and-docker/
-# https://towardsdatascience.com/how-to-use-streamlit-and-python-to-build-a-data-science-app-d74b0d28ca8
