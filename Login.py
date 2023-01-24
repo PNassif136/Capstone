@@ -8,7 +8,7 @@ from PIL import Image
 from streamlit_option_menu import option_menu
 
 st.set_page_config(
-    page_title='Dashboard - Login',
+    page_title='Login',
     page_icon='⭐',
     layout="centered",
     initial_sidebar_state="auto",
