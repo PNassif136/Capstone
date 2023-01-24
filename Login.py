@@ -46,8 +46,8 @@ with col2:
     add_bg_from_local('background3.png')
 
     # Show general information on partners in the sidebar
-    image = Image.open('/Users/Paul/RLTDxKFH.jpg')
-    image2 = Image.open('/Users/Paul/RLTDxKFH2.jpeg')
+    image = Image.open('RLTDxKFH.jpg')
+    image2 = Image.open('RLTDxKFH2.jpeg')
     st.sidebar.image(image)
     st.sidebar.subheader('About Baitak Rewards')
     st.sidebar.write('''Baitak Rewards Program is a Kuwait Finance House Loyalty
